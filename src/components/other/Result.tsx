@@ -46,19 +46,21 @@ const data: cmd[] = [
 ]
 
 export default function Result({commandInput}: any) {
-    const res = commandInput === 'help' ? data.filter((c: cmd) => c.command !== 'panel') : [...data].filter((c: cmd) => c.command === commandInput);
+    const res = commandInput === 'help' ? [...data] : [...data.filter((a: cmd) => a.command === 'panel')].filter((c: cmd) => c.command === commandInput);
     return (
         <div className="my-2 mr-2 text-coolgrey">
             <>
                 {res.length === 0 && <p>command not found</p>}
                 {res.length === data.length &&
                     res.map((cm: cmd, i: number) => {
-                        return (
-                            <RES key={i}>
-                                <p className="flex-1 -mr-16">{cm.command}</p>
-                                <p className="flex-1">{cm.description}</p>
-                            </RES>
-                        )
+                        if (cm.command != 'panel') {
+                            return (
+                                <RES key={i}>
+                                    <p className="flex-1 -mr-16">{cm.command}</p>
+                                    <p className="flex-1">{cm.description}</p>
+                                </RES>
+                            )
+                        }
                     })
                 }
                 {res.length < data.length &&
