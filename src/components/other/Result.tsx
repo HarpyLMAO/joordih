@@ -46,7 +46,7 @@ const data: cmd[] = [
 ]
 
 export default function Result({commandInput}: any) {
-    const res = commandInput === 'help' ? [...data] : [...data.filter((a: cmd) => a.command === 'panel')].filter((c: cmd) => c.command === commandInput);
+    const res = commandInput === 'help' ? [...data] : [...data].filter((c: cmd) => c.command === commandInput);
     return (
         <div className="my-2 mr-2 text-coolgrey">
             <>
