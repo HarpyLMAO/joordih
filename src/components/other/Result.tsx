@@ -23,7 +23,10 @@ const data: cmd[] = [
     {
         command: 'about',
         description: 'Pequeño resumen',
-        content: 'normalmente conocido como jordi o harpy, soy un desarrollador de backend y usualmente de frontend, entusiasmado por la programación. Empecé a programar plugins de minecraft y he terminado haciendo de todo un poco!'
+        content:
+            'Normalmente conocido como jordi o harpy, soy un desarrollador de backend y usualmente de frontend,\n' +
+            'entusiasmado por la programación. Empecé a programar plugins de minecraft y \n' +
+            'he terminado haciendo de todo un poco!'
     },
     {command: 'projects', description: 'algunos proyectos que he hecho', content: ''},
     {command: 'github', description: 'mi perfil de github', content: 'https://github.com/harpylmao'},
@@ -39,8 +42,8 @@ const data: cmd[] = [
             tools: ['VScode', 'Jetbrains IDE´s', 'Git', 'Github', 'Docker']
         }
     },
-    {command: 'repo', description: 'el repo de esta pagina', content: 'https://github.com/joord1h/joordih.lol'},
-    {command: 'quote', description: 'mi frase estrella', content: 'Si funciona, no lo toques'},
+    {command: 'repo', description: 'el repo de esta pagina', content: 'https://github.com/HarpyLMAO/joordih'},
+    {command: 'things', description: 'mi vocabulario se basa en', content: 'Que barbaridad, amos no me jodas, si funciona no lo toques!'},
     {command: 'clear', description: '', content: ''},
     {command: 'panel', description: '', content: ''},
 ]
@@ -97,7 +100,7 @@ export default function Result({commandInput}: any) {
                                 );
                             })
                             .with('twitter', 'github', () => {
-                                return <p key={i}>check out my {cm.command} profile :
+                                return <p key={i}>Aquí podrás encontrar mi perfil de {cm.command}:
                                     <A href={cm.content} target='_blank'>{cm.content}</A></p>
                             })
                             .with('music', () => {
